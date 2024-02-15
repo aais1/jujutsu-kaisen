@@ -11,7 +11,7 @@
             var video = document.querySelector(".vid");
             var isLoaded=false;
             
-            video.onloadeddata = function() {
+            video.oncanplay = function() {
                 isLoaded=true;
                 console.log("Video is loaded");
                 console.log(isLoaded);
