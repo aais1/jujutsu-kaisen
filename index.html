@@ -9,12 +9,20 @@
         document.addEventListener("DOMContentLoaded", function() {
             // Get the video element
             var video = document.querySelector(".vid");
+            var isLoaded=false;
+            
+            video.onloadeddata = function() {
+                isLoaded=true;
+                console.log("Video is loaded");
+                console.log(isLoaded);
 
-
-            document.addEventListener("click", function() {
+                // Play the video
+                if(isLoaded){
+                document.addEventListener("click", function() {
                 video.play();
                 video.muted = false;
             });
+        }}
         });
     </script>
 
