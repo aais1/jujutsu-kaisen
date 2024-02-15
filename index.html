@@ -10,7 +10,7 @@
             // Get the video element
             var video = document.querySelector(".vid");
             var isLoaded=false;
-            
+
             video.oncanplay = function() {
                 isLoaded=true;
                 console.log("Video is loaded");
@@ -18,11 +18,17 @@
 
                 // Play the video
                 if(isLoaded){
-                document.addEventListener("click", function() {
+                document.addEventListener("click", function eventHandler() {
                 video.play();
                 video.muted = false;
+                this.removeEventListener('click', eventHandler);
             });
         }}
+
+        video.onended=()=>{
+            video.remove();
+            document.querySelector(".bgImg").style.display="block";
+        }
         });
     </script>
 
@@ -35,8 +41,12 @@
             <div class="header-item">Yuju Itadori</div>
             <div class="header-item">Ryomen Sakuna</div>
         </div>
+
+        <div class="bgImg"></div>
+
         <div class="bgVid">
-        <video class="vid" src="bgVidAnime.mp4"></video></div>
+        <video class="vid" src="bgVidAnime.mp4"></video>
+        </div>
     </div>
     <div class="content">
         <div class="hero">
