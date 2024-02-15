@@ -6,34 +6,47 @@
     <title>Jujutsu Kaisen</title>
     <link rel="stylesheet" href="style.css">
     <script>
+        
         document.addEventListener("DOMContentLoaded", function() {
-            // Get the video element
-            var video = document.querySelector(".vid");
-            var isLoaded=false;
+            console.log("loaded");
+    // Get the video element
+    var video = document.querySelector(".vid");
+    const loaderContainer = document.querySelector(".loader-container");
+        const loader = document.querySelector(".loader");
+        const container = document.querySelector(".container");
+    var isLoaded = false;   
+    console.log(video);
+    video.onloadedmetadata = function() {
+        loader.style.display = "none";
+        loaderContainer.style.display = "none";
+        container.style.display = "block"; 
 
-            video.oncanplay = function() {
-                isLoaded=true;
-                console.log("Video is loaded");
-                console.log(isLoaded);
+        isLoaded = true;
+        console.log("Video is loaded");
+        console.log(isLoaded);
 
-                // Play the video
-                if(isLoaded){
-                document.addEventListener("click", function eventHandler() {
+        // Play the video
+        if (isLoaded) {
+            document.addEventListener("click", function eventHandler() {
                 video.play();
                 video.muted = false;
                 this.removeEventListener('click', eventHandler);
             });
-        }}
-
-        video.onended=()=>{
-            video.remove();
-            document.querySelector(".bgImg").style.display="block";
         }
-        });
+    };
+
+    video.onended = function() {
+        video.remove();
+        document.querySelector(".bgImg").style.display = "block";
+    };
+});
     </script>
 
 </head>
 <body>
+    <div class="loader-container">
+    <div class="loader"></div>
+</div>
     <div class="container">
         <div class="header">
             <div class="header-item">Anime-Codes</div>
@@ -47,7 +60,7 @@
         <div class="bgVid">
         <video class="vid" src="bgVidAnime.mp4"></video>
         </div>
-    </div>
+    
     <div class="content">
         <div class="hero">
         <h1 class="heading">Jujutsu Kaisen</h1>
@@ -58,5 +71,6 @@
     <div class="footer">
         <a href="https://github.com/aais1" target="_blank"><div class="footer-item">© Ali Aais</div></a>   
     </div>
+</div>
 </body>
 </html>
