@@ -1,79 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jujutsu Kaisen</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script>
-        
-        document.addEventListener("DOMContentLoaded", function() {
-            console.log("loaded");
-    // Get the video element
-    var video = document.querySelector(".vid");
-    const loaderContainer = document.querySelector(".loader-container");
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("loaded");
+        // Get the video element
+        var video = document.querySelector(".vid");
+        const loaderContainer = document.querySelector(".loader-container");
         const loader = document.querySelector(".loader");
         const container = document.querySelector(".container");
-    var isLoaded = false;   
-    console.log(video);
-    video.onloadeddata = function() {
-        // Check if the video is loaded
-        if(video.readyState >= 4) {
-            isLoaded = true;
-            loader.style.display = "none";
-        loaderContainer.style.display = "none";
-        container.style.display = "block"; 
+        var isLoaded = false;
+        console.log(video);
 
-        }
-        console.log("Video is loaded");
-        console.log(isLoaded);
 
-        // Play the video
-        if (isLoaded) {
+        video.addEventListener("canplay", function () {
+          isLoaded = true;
+          loader.style.display = "none";
+          loaderContainer.style.display = "none";
+          container.style.display = "block";
+
+          // Play the video
+          if (isLoaded) {
             document.addEventListener("click", function eventHandler() {
-                video.play();
-                video.muted = false;
-                this.removeEventListener('click', eventHandler);
+              video.play();
+              video.muted = false;
+              this.removeEventListener("click", eventHandler);
             });
-        }
-    };
+          }
+        });
 
-    video.onended = function() {
-        video.remove();
-        document.querySelector(".bgImg").style.display = "block";
-    };
-});
+        video.onended = function () {
+          video.remove();
+          document.querySelector(".bgImg").style.display = "block";
+        };
+      });
     </script>
-
-</head>
-<body>
+  </head>
+  <body>
     <div class="loader-container">
-    <div class="loader"></div>
-</div>
+      <div class="loader"></div>
+    </div>
     <div class="container">
-        <div class="header">
-            <div class="header-item">Anime-Codes</div>
-            <div class="header-item">Satura Gojo</div>
-            <div class="header-item">Yuju Itadori</div>
-            <div class="header-item">Ryomen Sakuna</div>
-        </div>
+      <div class="header">
+        <div class="header-item">Anime-Codes</div>
+        <div class="header-item">Satura Gojo</div>
+        <div class="header-item">Yuju Itadori</div>
+        <div class="header-item">Ryomen Sakuna</div>
+      </div>
 
-        <div class="bgImg"></div>
+      <div class="bgImg"></div>
 
-        <div class="bgVid">
+      <div class="bgVid">
         <video class="vid" src="bgVidAnime.mp4" preload="auto"></video>
-        </div>
-    
-    <div class="content">
-        <div class="hero">
-        <h1 class="heading">Jujutsu Kaisen</h1>
-        <h1 class="info">A Manga Series</h1>
-        </div>
-    </div>
+      </div>
 
-    <div class="footer">
-        <a href="https://github.com/aais1" target="_blank"><div class="footer-item">© Ali Aais</div></a>   
+      <div class="content">
+        <div class="hero">
+          <h1 class="heading">Jujutsu Kaisen</h1>
+          <h1 class="info">A Manga Series</h1>
+        </div>
+      </div>
+
+      <div class="footer">
+        <a href="https://github.com/aais1" target="_blank"
+          ><div class="footer-item">© Ali Aais</div></a
+        >
+      </div>
     </div>
-</div>
-</body>
+  </body>
 </html>
