@@ -17,11 +17,14 @@
     var isLoaded = false;   
     console.log(video);
     video.onloadeddata = function() {
-        loader.style.display = "none";
+        // Check if the video is loaded
+        if(video.readyState >= 4) {
+            isLoaded = true;
+            loader.style.display = "none";
         loaderContainer.style.display = "none";
         container.style.display = "block"; 
 
-        isLoaded = true;
+        }
         console.log("Video is loaded");
         console.log(isLoaded);
 
@@ -58,7 +61,7 @@
         <div class="bgImg"></div>
 
         <div class="bgVid">
-        <video class="vid" src="bgVidAnime.mp4"></video>
+        <video class="vid" src="bgVidAnime.mp4" preload="auto"></video>
         </div>
     
     <div class="content">
