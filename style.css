@@ -82,6 +82,10 @@
     letter-spacing:6px;
 }
 
+a{
+    text-decoration: none;
+}
+
 .footer-item{
     color: white;
     padding:5px;

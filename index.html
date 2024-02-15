@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jujutsu Kaisen</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get the video element
+            var video = document.querySelector(".vid");
+
+
+            document.addEventListener("click", function() {
+                video.play();
+                video.muted = false;
+            });
+        });
+    </script>
+
 </head>
 <body>
     <div class="container">
@@ -15,7 +28,7 @@
             <div class="header-item">Ryomen Sakuna</div>
         </div>
         <div class="bgVid">
-        <video class="vid" src="bgVidAnime.mp4" autoplay loop></video></div>
+        <video class="vid" src="bgVidAnime.mp4"></video></div>
     </div>
     <div class="content">
         <div class="hero">
