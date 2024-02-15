@@ -16,7 +16,7 @@
         const container = document.querySelector(".container");
     var isLoaded = false;   
     console.log(video);
-    video.onloadedmetadata = function() {
+    video.onloadeddata = function() {
         loader.style.display = "none";
         loaderContainer.style.display = "none";
         container.style.display = "block"; 
